@@ -8,6 +8,14 @@ This implementation uses guided filtering instead of soft-matting in order to im
 
 Guided filters were introduced in http://kaiminghe.com/publications/eccv10guidedfilter.pdf
 
+## Usage
+The algorithm tends to be noisy, especially when the input image contains regions with zero transmission (such as sky).
+
+A trade-off between amount of dehazing and noise must be found by adapting the value of t0 (0.3 is a good value for images with sky regions).
+```cpp
+void recoverSceneRadiance(cv::Mat src, cv::Mat& radiance, int patchSize, float t0)
+```
+
 ## Sample Results
 
 ### Sample 1
